@@ -1,12 +1,19 @@
 import { useState } from 'react'
-import Header from './Components/Header'
+import Header from './Components/Header1'
+import {Routes,Route} from 'react-router-dom'
+import Home from './Components/Home'
+import Cart from './Components/Cart'
 import './App.css'
 
 function App() {
 
   return (
     <>
-       <Header></Header>
+       <Header/>
+       <Routes>
+      <Route path="/" element={<Home/>}/>
+      <Route path="/cart" element={<Cart/>}/>
+       </Routes>
    </>
   )
 }

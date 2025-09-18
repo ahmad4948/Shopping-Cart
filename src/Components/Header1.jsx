@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 function Header (){
     return(
         <>
@@ -6,8 +7,8 @@ function Header (){
 
       <h1 className="ml-2 text-2xl ">Shopping Cart</h1>
       <nav className="ml-100">
-       <a className="text-2xl">Home</a>
-       <a className="text-2xl ml-16">Cart</a>
+       <Link to="/" className="text-2xl">Home </Link>
+       <Link to="/cart" className="text-2xl ml-16">Cart  </Link>
       </nav>
       <span className="text-2xl font-bold ml-105">Cart:</span>
       </div>
