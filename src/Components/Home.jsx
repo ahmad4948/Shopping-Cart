@@ -1,53 +1,35 @@
-function Home(){
-    const products = [
-  {
-    id: 1,
-    name: "Sony Wh-Ch510 Bluetooth Wireless",
-    price: 149,
-    image: "sony.jpg"
-  },
-  {
-    id: 2,
-    name: "boAt Rockerz 450",
-    price: 49,
-    image: "boat.jpg"
-  },
-  {
-    id: 3,
-    name: "JBL Tune 760NC",
-    price: 179,
-    image: "jbl.jpg"
-  },
-  {
-    id: 4,
-    name: "Logitech H111 Wired",
-    price: 39,
-    image: "logitech.jpg"
-  },
-  {
-    id: 5,
-    name: "APPLE Airpods Max Bluetooth Headset",
-    price: 199,
-    image: "apple.jpg"
-  },
-  {
-    id: 6,
-    name: "ZEBRONICS Zeb-Thunder Wired",
-    price: 29,
-    image: "zebronics.jpg"
-  }
-]
+import { useState } from "react";
+
+function Home(props){
+     const products=props.products;
+     let [buttons,setbuttons] = useState([]);
+     function hi(idtoremove){
+      let exists = buttons.includes(idtoremove);
+      if(exists){
+       setbuttons(buttons.filter(productid=> productid!=idtoremove));
+      }
+      else{
+        setbuttons([...buttons, idtoremove]);
+      }
+     }
 return(
 <>
  <div className="grid grid-cols-3 mt-12 mx-auto">
-    {products.map((product) => (
+    {products.map((product) => {
+        const incart = buttons.includes(product.id);
+
+         return(
         <div key={product.id} className="mx-auto mb-10">
-        <img src={product.image} alt={product.name} className="w-80 h-80"/>
+        <img src={product.image} alt={product.name} className="w-80 h-80 rounded"/>
         <h2>{product.name}</h2>
         <span>Price: ${product.price}</span>
-        <button className="ml-42 bg-blue-500 rounded p-1 text-white cursor-pointer">Add to Cart</button>
+        {incart? 
+        <button className="ml-42 bg-red-500 rounded p-1 text-white cursor-pointer" onClick={()=>hi(product.id)}>Remove</button>
+        :<button className="ml-42 bg-blue-500 rounded p-1 text-white cursor-pointer" onClick={()=>hi(product.id)}>Add to Cart</button>
+        }
         </div>
-    ))}
+    );
+    })}
  </div>
 </>
 )
