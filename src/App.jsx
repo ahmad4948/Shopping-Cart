@@ -6,6 +6,16 @@ import Cart from './Components/Cart'
 import './App.css'
 
 function App() {
+   let [buttons,setbuttons] = useState([]);
+   function hi(idtoremove){
+      let exists = buttons.includes(idtoremove);
+      if(exists){
+       setbuttons(buttons.filter(productid=> productid!=idtoremove));
+      }
+      else{
+        setbuttons([...buttons, idtoremove]);
+      }
+     }
    const products = [
   {
     id: 1,
@@ -47,10 +57,10 @@ function App() {
 
   return (
     <>
-       <Header/>
+       <Header products={products} buttons={buttons}/>
        <Routes>
-      <Route path="/" element={<Home products={products}/>}/>
-      <Route path="/cart" element={<Cart/>}/>
+      <Route path="/" element={<Home products={products} hi={hi} buttons={buttons}/>}/>
+      <Route path="/cart" element={<Cart products={products} buttons={buttons}/>}/>
        </Routes>
    </>
   )

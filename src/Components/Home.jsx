@@ -2,16 +2,8 @@ import { useState } from "react";
 
 function Home(props){
      const products=props.products;
-     let [buttons,setbuttons] = useState([]);
-     function hi(idtoremove){
-      let exists = buttons.includes(idtoremove);
-      if(exists){
-       setbuttons(buttons.filter(productid=> productid!=idtoremove));
-      }
-      else{
-        setbuttons([...buttons, idtoremove]);
-      }
-     }
+     const buttons=props.buttons;
+     const hi=props.hi;
 return(
 <>
  <div className="grid grid-cols-3 mt-12 mx-auto">

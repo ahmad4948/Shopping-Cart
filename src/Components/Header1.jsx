@@ -1,5 +1,12 @@
 import { Link, NavLink } from 'react-router-dom'
-function Header (){
+function Header (props){
+  const buttons = props.buttons;
+  const products = props.products;
+  let items=0;
+    {buttons.map((id)=>{
+         const product = products.find(p => p.id===id);
+         items++;
+        })}
     return(
       <>
         <div className=' flex justify-between items-center mt-4 px-32'>
@@ -19,7 +26,7 @@ function Header (){
             }>Cart</NavLink>
        </nav>
        </div>
-      <span className="text-2xl font-bold">Cart:</span>
+      <span className="text-2xl font-bold">Cart: {items}</span>
       </div>
          <hr className="border-t-2 border-gray-100 mt-6 w-5/6 mx-auto"></hr>
          </>
