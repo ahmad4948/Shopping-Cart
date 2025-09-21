@@ -7,6 +7,7 @@ import './App.css'
 
 function App() {
    let [buttons,setbuttons] = useState([]);
+   
    function hi(idtoremove){
       let exists = buttons.includes(idtoremove);
       if(exists){
@@ -60,7 +61,7 @@ function App() {
        <Header products={products} buttons={buttons}/>
        <Routes>
       <Route path="/" element={<Home products={products} hi={hi} buttons={buttons}/>}/>
-      <Route path="/cart" element={<Cart products={products} buttons={buttons}/>}/>
+      <Route path="/cart" element={<Cart hi ={hi} products={products} buttons={buttons}/>}/>
        </Routes>
    </>
   )
