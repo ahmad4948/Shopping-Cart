@@ -18,7 +18,7 @@ function Header (props){
 
       <nav className="ml-82 flex space-x-8">
        <NavLink to="/" className={({ isActive }) =>(
-              isActive ? "text-2xl bg-gray-300 rounded p-1" : "text-2xl"
+              isActive ? "text-2xl bg-gray-300 rounded p-1" : "text-2xl my-auto"
             )}>Home</NavLink>
 
        <NavLink to="/Cart" className={({ isActive }) =>
