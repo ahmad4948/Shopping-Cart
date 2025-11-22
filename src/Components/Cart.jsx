@@ -11,11 +11,14 @@ function Cart(props){
         <br/>
         <br/>
         {cartitems.map(p=>(
-            <div className="flex justify-between ml-48 max-w-6xl shadow-md rounded mb-8 border border-gray-300 border-solid h-40">
+            <div className="flex justify-between md:ml-48 max-w-6xl shadow-md rounded mb-8
+             border border-gray-300 border-solid h-24 md:h-40">
          <img  className="w-auto h-full" src={p.image}/>
-         <span className="my-auto ml-8">{p.name}</span>
-         <span className="my-auto ml-80">${p.price}</span>
-         <button className="bg-red-700 cursor-pointer h-8 rounded my-auto text-white p-1 mr-6 ml-80" onClick={()=>hi(p.id)}>Remove</button>
+         <span className="my-auto ml-8 md:text-base text-sm">{p.name}</span>
+         <span className="my-auto ml-2.5 md:ml-80 mr-3 md:mr-0">${p.price}</span>
+         <button className="bg-red-700 cursor-pointer h-8 rounded my-auto text-white p-1
+          md:mr-6 ml-auto md:ml-80 text-xs md:text-base mr-1" 
+         onClick={()=>hi(p.id)}>Remove</button>
          </div>
         )
         )}
