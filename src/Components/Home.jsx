@@ -3,7 +3,7 @@ import { useState } from "react";
 function Home(props){
      const products=props.products;
      const buttons=props.buttons;
-     const hi=props.hi;
+     const toggle=props.toggle;
 return(
 <>
  <div className="grid grid-cols-3 mt-12 mx-auto">
@@ -16,8 +16,8 @@ return(
         <h2 className="text-sm md:text-base">{product.name}</h2>
         <span className="text-sm md:text-base">Price: ${product.price}</span>
         {incart? 
-        <button className="text-xs md:text-base md:ml-46 bg-red-700 rounded p-1 text-white cursor-pointer mb-2 md:w-18" onClick={()=>hi(product.id)}>Remove</button>
-        :<button className="text-xs md:text-base md:ml-46 bg-blue-700 rounded p-1 text-white cursor-pointer mb-2" onClick={()=>hi(product.id)}>Add to Cart</button>
+        <button className="text-xs md:text-base md:ml-46 bg-red-700 rounded p-1 text-white cursor-pointer mb-2 md:w-18" onClick={()=>toggle(product.id)}>Remove</button>
+        :<button className="text-xs md:text-base md:ml-46 bg-blue-700 rounded p-1 text-white cursor-pointer mb-2" onClick={()=>toggle(product.id)}>Add to Cart</button>
         }
         </div>
     );
