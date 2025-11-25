@@ -3,20 +3,12 @@ import Header from './Components/Header1'
 import {Routes,Route} from 'react-router-dom'
 import Home from './Components/Home'
 import Cart from './Components/Cart'
+
 import './App.css'
 
 function App() {
-   let [buttons,setbuttons] = useState([]);
-   
-   function toggle(idtoremove){
-      let exists = buttons.includes(idtoremove);
-      if(exists){
-       setbuttons(buttons.filter(productid=> productid!=idtoremove));
-      }
-      else{
-        setbuttons([...buttons, idtoremove]);
-      }
-     }
+
+  
    const products = [
   {
     id: 1,
@@ -58,10 +50,10 @@ function App() {
 
   return (
     <>
-       <Header products={products} buttons={buttons}/>
+       <Header products={products}/>
        <Routes>
-      <Route path="/" element={<Home products={products} toggle={toggle} buttons={buttons}/>}/>
-      <Route path="/cart" element={<Cart toggle ={toggle} products={products} buttons={buttons}/>}/>
+      <Route path="/" element={<Home products={products}/>}/>
+      <Route path="/cart" element={<Cart products={products}/>}/>
        </Routes>
    </>
   )

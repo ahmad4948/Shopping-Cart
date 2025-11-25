@@ -1,6 +1,7 @@
 import { Link, NavLink } from 'react-router-dom'
+import { useDispatch,useSelector } from 'react-redux';
 function Header (props){
-  const buttons = props.buttons;
+  const buttons = useSelector(state=>state.cart.buttons);
   const products = props.products;
   let items=0;
     {buttons.map((id)=>{
