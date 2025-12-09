@@ -3,11 +3,7 @@ import { useDispatch,useSelector } from 'react-redux';
 function Header (props){
   const buttons = useSelector(state=>state.cart.buttons);
   const products = props.products;
-  let items=0;
-    {buttons.map((id)=>{
-         const product = products.find(p => p.id===id);
-         items++;
-        })}
+  let items=buttons.length;
     return(
       <>
         <div className=' flex justify-between items-center mt-4 px-2 md:px-32'>
